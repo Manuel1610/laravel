@@ -22,7 +22,8 @@ class CreateLibroTable extends Migration
             $table->string('responsablearea');
             $table->string('responsablesoporte');
             $table->string('codigopatrimonial');
-            $table->string('entrega');
+            $table->date('fechaentrega');
+            $table->String('salida');
             $table->timestamps();
         });
     }

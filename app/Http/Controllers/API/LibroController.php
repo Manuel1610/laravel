@@ -21,9 +21,10 @@ class LibroController extends Controller
       $data['area']         = $request['area'];
       $data['problema']     = $request['problema'];
       $data['responsablearea']      = $request['responsablearea'];
-      $data['responsablesoporte']   = $request ['responsablesoporte'];
-      $data['codigopatrimonial']    = $request ['codigopatrimonial'];
+      $data['responsablesoporte']   = $request['responsablesoporte'];
+      $data['codigopatrimonial']    = $request['codigopatrimonial'];
       $data['entrega']              = $request['entrega'];
+      $data['salida']               = $request['salida'];
 
       Libro::create($data);
       return response()->json([
@@ -46,18 +47,8 @@ class LibroController extends Controller
     }
 
     public function update(Request $request,$id){
-        $data['fecha'] = $request['fecha'];
-        $data['phone'] = $request['phone'];
-        $data['area'] = $request['area'];
-        $data['problema'] = $request['problema'];
-        $data['responsablearea'] = $request['responsableare'];
-        $data['responsablesoporte'] = $request ['responsablesoporte'];
-        $data['codigopatrimonial'] = $request ['codigopatrimonial'];
-        $data['entrega'] = $request['entrega'];
-        Libro::find($id)->update($data);
-      return response()->json([
-          'message' => "Successfully updated",
-          'success' => true
-      ], 200);
+
+      libro::findOrFail($id)->update($request->all());
+            return response()->json(['success' => true]);
     }
 }

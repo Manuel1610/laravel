@@ -15,5 +15,4 @@ class UserController extends Controller
         $usuario->password=$data->password;
         $usuario->save();
     }
-
 }

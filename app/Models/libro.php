@@ -19,6 +19,7 @@ class libro extends Model
       'responsablearea',
       'responsablesoporte',
       'codigopatrimonial',
-      'entrega'
+      'fechaentrega',
+      'salida'
     ];
 }

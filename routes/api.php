@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\LibroController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\API\PracticantesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,13 +31,12 @@ Route::group([
 
     Route::post('login',  [ AuthController::class, 'login']);
     Route::post('signup', [ UserController::class, 'create']);
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+    Route::post('logout', [ AuthController::class, 'logout']);
+    Route::post('refresh', [ AuthController::class, 'refresh']);
+    Route::post('me', [ AuthController::class, 'me']);
+    Route::post('sendPasswordReset', [ ResetPasswordController::class, 'sendEmail']);
 
 });
-
-
 
 Route::prefix('libro')->group(function () {
     Route::get('/',[ LibroController::class, 'getAll']);
@@ -43,4 +44,12 @@ Route::prefix('libro')->group(function () {
     Route::delete('/{id}',[ LibroController::class, 'delete']);
     Route::get('/{id}',[ LibroController::class, 'get']);
     Route::put('/{id}',[ LibroController::class, 'update']);
+});
+
+Route::prefix('practicantes')->group(function () {
+    Route::get('/',[ PracticantesController::class, 'getAll']);
+    Route::post('/',[ PracticantesController::class, 'create']);
+    Route::delete('/{id}',[ PracticantesController::class, 'delete']);
+    Route::get('/{id}',[ PracticantesController::class, 'get']);
+    Route::put('/{id}',[ PracticantesController::class, 'update']);
 });
