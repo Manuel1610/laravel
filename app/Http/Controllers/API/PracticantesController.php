@@ -18,7 +18,9 @@ class PracticantesController extends Controller
 
         $data['Nombres']        = $request['Nombres'];
         $data['Apellidos']      = $request['Apellidos'];
+        $data['FechaNacimiento']= $request['FechaNacimiento'];
         $data['DNI']            = $request['DNI'];
+        $data['Celular']        = $request['Celular'];
         $data['Turno']          = $request['Turno'];
         $data['Inicio']         = $request['Inicio'];
         $data['Fin']            = $request['Fin'];

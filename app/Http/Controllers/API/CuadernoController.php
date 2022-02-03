@@ -4,19 +4,14 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-Use App\Models\Libro;
+Use App\Models\Cuaderno;
 Use Log;
 use App\Http\Middleware\auth;
 
-class LibroController extends Controller
+class CuadernoController extends Controller
 {
-
-    public function __construct() {
-        $this->middleware('auth.role:1' );
-    }
-
     public function getAll(){
-    $data = Libro::get();
+    $data = Cuaderno::get();
     return response()->json($data, 200);
     }
 
@@ -32,7 +27,7 @@ class LibroController extends Controller
     $data['fechaentrega']         = $request['fechaentrega'];
     $data['salida']               = $request['salida'];
 
-    Libro::create($data);
+    Cuaderno::create($data);
     return response()->json([
         'message' => "Successfully created",
         'success' => true
@@ -40,7 +35,7 @@ class LibroController extends Controller
     }
 
     public function delete($id){
-    $res = Libro::find($id)->delete();
+    $res = Cuaderno::find($id)->delete();
     return response()->json([
         'message' => "Successfully deleted",
         'success' => true
@@ -48,13 +43,14 @@ class LibroController extends Controller
     }
 
     public function get($id){
-    $data = Libro::find($id);
+    $data = Cuaderno::find($id);
     return response()->json($data, 200);
     }
 
     public function update(Request $request,$id){
 
-    libro::findOrFail($id)->update($request->all());
+        Cuaderno::findOrFail($id)->update($request->all());
         return response()->json(['success' => true]);
     }
 }
+

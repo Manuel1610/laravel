@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\API\PracticantesController;
+use App\Http\Controllers\API\CuadernoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +53,12 @@ Route::prefix('practicantes')->group(function () {
     Route::delete('/{id}',[ PracticantesController::class, 'delete']);
     Route::get('/{id}',[ PracticantesController::class, 'get']);
     Route::put('/{id}',[ PracticantesController::class, 'update']);
+});
+
+Route::prefix('cuaderno')->group(function () {
+    Route::get('/',[ CuadernoController::class, 'getAll']);
+    Route::post('/',[ CuadernoController::class, 'create']);
+    Route::delete('/{id}',[ CuadernoController::class, 'delete']);
+    Route::get('/{id}',[ CuadernoController::class, 'get']);
+    Route::put('/{id}',[ CuadernoController::class, 'update']);
 });

@@ -9,12 +9,14 @@ class Practicantes extends Model
 {
     use HasFactory;
 
-    protected $table = "practicantes";
+    protected $table = "Practicantes";
 
     protected $fillable = [
       'Nombres',
       'Apellidos',
+      'FechaNacimiento',
       'DNI',
+      'Celular',
       'Turno',
       'Inicio',
       'Fin'

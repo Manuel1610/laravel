@@ -17,8 +17,10 @@ class CreatePracticantesTable extends Migration
             $table->id();
             $table->String('Nombres');
             $table->String('Apellidos');
+            $table->date('FechaNacimiento');
             $table->bigInteger('DNI');
-            $table->Boolean('Turno');
+            $table->bigInteger('Celular');
+            $table->string('Turno');
             $table->String ('Inicio');
             $table->String('Fin');
             $table->timestamps();
