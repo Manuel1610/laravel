@@ -10,9 +10,10 @@ class UserController extends Controller
     public function create(Request $data)
     {
         $usuario = new User();
-        $usuario->nombre=$data->name;
+        $usuario->name=$data->name;
         $usuario->email=$data->email;
         $usuario->password=$data->password;
         $usuario->save();
     }
+
 }

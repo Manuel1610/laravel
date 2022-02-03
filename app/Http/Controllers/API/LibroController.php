@@ -6,9 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 Use App\Models\Libro;
 Use Log;
+use App\Http\Middleware\auth;
 
 class LibroController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth.role:1');
+    }
 
     public function getAll(){
       $data = Libro::get();
@@ -16,6 +21,7 @@ class LibroController extends Controller
     }
 
     public function create(Request $request){
+
       $data['fecha']        = $request['fecha'];
       $data['phone']        = $request['phone'];
       $data['area']         = $request['area'];
@@ -23,7 +29,7 @@ class LibroController extends Controller
       $data['responsablearea']      = $request['responsablearea'];
       $data['responsablesoporte']   = $request['responsablesoporte'];
       $data['codigopatrimonial']    = $request['codigopatrimonial'];
-      $data['entrega']              = $request['entrega'];
+      $data['fechaentrega']         = $request['fechaentrega'];
       $data['salida']               = $request['salida'];
 
       Libro::create($data);
