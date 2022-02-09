@@ -13,13 +13,14 @@ class cuaderno extends Model
 
     protected $fillable = [
         'fecha',
-        'phone',
-        'area',
-        'problema',
-        'responsablearea',
-        'responsablesoporte',
-        'codigopatrimonial',
+        'documento',
+        'folio_entrada',
+        'procedencia',
+        'asunto',
+        'encargado',
+        'proveido',
+        'folio_salida',
         'fechaentrega',
-        'salida'
+        'cargo'
     ];
 }

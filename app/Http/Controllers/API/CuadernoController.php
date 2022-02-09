@@ -17,15 +17,16 @@ class CuadernoController extends Controller
 
     public function create(Request $request){
 
-    $data['fecha']        = $request['fecha'];
-    $data['phone']        = $request['phone'];
-    $data['area']         = $request['area'];
-    $data['problema']     = $request['problema'];
-    $data['responsablearea']      = $request['responsablearea'];
-    $data['responsablesoporte']   = $request['responsablesoporte'];
-    $data['codigopatrimonial']    = $request['codigopatrimonial'];
-    $data['fechaentrega']         = $request['fechaentrega'];
-    $data['salida']               = $request['salida'];
+        $data['fecha']              = $request['fecha'];
+        $data['documento']          = $request['documento'];
+        $data['folio_entrada']      = $request['folio_entrada'];
+        $data['procedencia']        = $request['procedencia'];
+        $data['asunto']             = $request['asunto'];
+        $data['encargado']          = $request['encargado'];
+        $data['proveido']           = $request['proveido'];
+        $data['folio_salida']       = $request['folio_salida'];
+        $data['fechaentrega']       = $request['fechaentrega'];
+        $data['cargo']              = $request['cargo'];
 
     Cuaderno::create($data);
     return response()->json([

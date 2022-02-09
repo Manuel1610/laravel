@@ -16,14 +16,15 @@ class CreateCuadernoTable extends Migration
         Schema::create('cuaderno', function (Blueprint $table) {
             $table->id();
             $table->date('fecha');
-            $table->bigInteger('phone');
-            $table->string('area');
-            $table->string('problema');
-            $table->string('responsablearea');
-            $table->string('responsablesoporte');
-            $table->string('codigopatrimonial');
+            $table->string('documento');
+            $table->bigInteger('folio_entrada');
+            $table->string('procedencia');
+            $table->string('asunto');
+            $table->string('encargado');
+            $table->string('proveido');
+            $table->bigIntegere('folio_salida');
             $table->date('fechaentrega');
-            $table->String('salida');
+            $table->String('cargo');
             $table->timestamps();
         });
     }

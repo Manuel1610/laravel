@@ -10,11 +10,6 @@ use App\Http\Middleware\auth;
 
 class LibroController extends Controller
 {
-
-    public function __construct() {
-        $this->middleware('auth.role:1' );
-    }
-
     public function getAll(){
     $data = Libro::get();
     return response()->json($data, 200);
@@ -22,15 +17,15 @@ class LibroController extends Controller
 
     public function create(Request $request){
 
-    $data['fecha']        = $request['fecha'];
-    $data['phone']        = $request['phone'];
-    $data['area']         = $request['area'];
-    $data['problema']     = $request['problema'];
-    $data['responsablearea']      = $request['responsablearea'];
-    $data['responsablesoporte']   = $request['responsablesoporte'];
-    $data['codigopatrimonial']    = $request['codigopatrimonial'];
-    $data['fechaentrega']         = $request['fechaentrega'];
-    $data['salida']               = $request['salida'];
+    $data['fecha']                  = $request['fecha'];
+    $data['phone']                  = $request['phone'];
+    $data['area']                   = $request['area'];
+    $data['problema']               = $request['problema'];
+    $data['responsablearea']        = $request['responsablearea'];
+    $data['responsablesoporte']     = $request['responsablesoporte'];
+    $data['codigopatrimonial']      = $request['codigopatrimonial'];
+    $data['fechaentrega']           = $request['fechaentrega'];
+    $data['salida']                 = $request['salida'];
 
     Libro::create($data);
     return response()->json([

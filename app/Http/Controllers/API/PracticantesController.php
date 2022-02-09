@@ -7,8 +7,15 @@ use Illuminate\Http\Request;
 Use App\Models\Practicantes;
 Use Log;
 
+use App\Http\Middleware\auth;
+
 class PracticantesController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth.role:1');
+    }
+
     public function getAll(){
         $data = Practicantes::get();
         return response()->json($data, 200);

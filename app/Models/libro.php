@@ -12,14 +12,14 @@ class libro extends Model
     protected $table = "libro";
 
     protected $fillable = [
-      'fecha',
-      'phone',
-      'area',
-      'problema',
-      'responsablearea',
-      'responsablesoporte',
-      'codigopatrimonial',
-      'fechaentrega',
-      'salida'
+        'fecha',
+        'phone',
+        'area',
+        'problema',
+        'responsablearea',
+        'responsablesoporte',
+        'codigopatrimonial',
+        'fechaentrega',
+        'salida'
     ];
 }
