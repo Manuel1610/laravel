@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 Use App\Models\Practicantes;
 Use Log;
-
 use App\Http\Middleware\auth;
 
 class PracticantesController extends Controller
@@ -44,15 +43,15 @@ class PracticantesController extends Controller
             'message' => "Successfully deleted",
             'success' => true
         ], 200);
-      }
-      public function get($id){
+    }
+    public function get($id){
         $data = Practicantes::find($id);
         return response()->json($data, 200);
-      }
-      public function update(Request $request,$id){
+    }
+    public function update(Request $request,$id){
 
         Practicantes::findOrFail($id)->update($request->all());
-              return response()->json(['success' => true]);
-      }
+        return response()->json(['success' => true]);
+    }
 }
 

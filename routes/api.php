@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\API\PracticantesController;
 use App\Http\Controllers\API\CuadernoController;
+use App\Http\Controllers\API\LibroGatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +63,12 @@ Route::prefix('cuaderno')->group(function () {
     Route::get('/{id}',[ CuadernoController::class, 'get']);
     Route::put('/{id}',[ CuadernoController::class, 'update']);
 });
+
+Route::prefix('LibroGat')->group(function () {
+    Route::get('/',[ LibroGatController::class, 'getAll']);
+    Route::post('/',[ LibroGatController::class, 'create']);
+    Route::delete('/{id}',[ LibroGatController::class, 'delete']);
+    Route::get('/{id}',[ LibroGatController::class, 'get']);
+    Route::put('/{id}',[ LibroGatController::class, 'update']);
+});
+

@@ -10,6 +10,10 @@ use App\Http\Middleware\auth;
 
 class CuadernoController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth.role:2');
+    }
+
     public function getAll(){
     $data = Cuaderno::get();
     return response()->json($data, 200);
