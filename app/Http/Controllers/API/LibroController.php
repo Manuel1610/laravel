@@ -19,6 +19,7 @@ class LibroController extends Controller
     return response()->json($data, 200);
     }
 
+
     public function create(Request $request){
 
     $data['fecha']                  = $request['fecha'];
@@ -56,4 +57,6 @@ class LibroController extends Controller
     libro::findOrFail($id)->update($request->all());
         return response()->json(['success' => true]);
     }
+
+
 }

@@ -10,6 +10,8 @@ use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use App\Models\role;
 use App\Models\roleuser;
+use App\Models\User;
+
 
 class auth
 {
