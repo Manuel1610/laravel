@@ -14,17 +14,17 @@ class CreateLibrogatTable extends Migration
     public function up()
     {
         Schema::create('librogat', function (Blueprint $table) {
+
             $table->id();
             $table->date('fecha');
-            $table->string('documento');
-            $table->bigInteger('folio_entrada');
-            $table->string('procedencia');
-            $table->string('asunto');
-            $table->string('encargado');
-            $table->string('proveido');
-            $table->bigInteger('folio_salida');
+            $table->bigInteger('phone');
+            $table->string('area');
+            $table->string('problema');
+            $table->string('responsablearea');
+            $table->string('responsablesoporte');
+            $table->string('codigopatrimonial');
             $table->date('fechaentrega');
-            $table->String('cargo');
+            $table->String('salida');
             $table->timestamps();
         });
     }

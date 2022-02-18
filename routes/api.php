@@ -9,6 +9,8 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\API\PracticantesController;
 use App\Http\Controllers\API\CuadernoController;
 use App\Http\Controllers\API\LibroGatController;
+use App\Http\Controllers\RoleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -64,11 +66,28 @@ Route::prefix('cuaderno')->group(function () {
     Route::put('/{id}',[ CuadernoController::class, 'update']);
 });
 
-Route::prefix('LibroGat')->group(function () {
+Route::prefix('librogat')->group(function () {
     Route::get('/',[ LibroGatController::class, 'getAll']);
     Route::post('/',[ LibroGatController::class, 'create']);
     Route::delete('/{id}',[ LibroGatController::class, 'delete']);
     Route::get('/{id}',[ LibroGatController::class, 'get']);
     Route::put('/{id}',[ LibroGatController::class, 'update']);
+});
+
+Route::prefix('role')->group(function () {
+    Route::get('/',[ RoleController::class, 'getAll']);
+    Route::post('/',[ RoleController::class, 'create']);
+    Route::delete('/{id}',[ RoleController::class, 'delete']);
+    Route::get('/{id}',[ RoleController::class, 'get']);
+    Route::put('/{id}',[ RoleController::class, 'update']);
+    Route::post('/user',[ RoleController::class, 'roluser']);
+    Route::get('/user/{id}',[ RoleController::class, 'roluserId']);
+});
+
+Route::prefix('user')->group(function () {
+    Route::get('/',[ UserController::class, 'getAll']);
+    Route::delete('/{id}',[ UserController::class, 'delete']);
+    Route::get('/{id}',[ UserController::class, 'get']);
+    Route::put('/{id}',[ UserController::class, 'update']);
 });
 

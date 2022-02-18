@@ -4,14 +4,14 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-Use App\Models\Libro;
+Use App\Models\libro;
 Use Log;
 use App\Http\Middleware\auth;
 
 class LibroController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth.role:2');
+        $this->middleware('auth.role:2,1');
     }
 
     public function getAll(){

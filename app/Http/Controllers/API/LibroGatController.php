@@ -11,7 +11,7 @@ use App\Http\Middleware\auth;;
 class LibroGatController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth.role:3');
+        $this->middleware('auth.role:3,1');
     }
 
     public function getAll(){
