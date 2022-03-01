@@ -20,13 +20,6 @@ class UserController extends Controller
         return response()->json($data, 200);
         }
 
-    public function create(Request $data)
-    {
-        $usuario = new User();
-        $usuario->password=$data->password;
-        $usuario->save();
-    }
-
     public function delete($id){
         $res = User::find($id)->delete();
         return response()->json([

@@ -22,4 +22,19 @@ class libro extends Model
         'fechaentrega',
         'salida'
     ];
+    public static function search($query){
+        if(!$query){
+            return self::all();
+        }
+        return self::where('fecha', 'like', "%$query%")
+        ->orWhere('phone','like', "%$query%")
+        ->orWhere('area','like', "%$query%")
+        ->orWhere('problema','like', "%$query%")
+        ->orWhere('responsablearea','like', "%$query%")
+        ->orWhere('responsablesoporte','like', "%$query%")
+        ->orWhere('codigopatrimonial','like', "%$query%")
+        ->orWhere('fechaentrega','like', "%$query%")
+        ->orWhere('salida','like', "%$query%")
+        ->get();
+    }
 }

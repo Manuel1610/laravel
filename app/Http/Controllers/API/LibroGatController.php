@@ -53,7 +53,10 @@ class LibroGatController extends Controller
 
         public function update(Request $request,$id){
 
-            Librogat::findOrFail($id)->update($request->all());
+        $data['fechaentrega']           = $request['fechaentrega'];
+        $data['salida']                 = $request['salida'];
+
+            Librogat::findOrFail($id)->update($data);
             return response()->json(['success' => true]);
         }
 }

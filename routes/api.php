@@ -10,6 +10,8 @@ use App\Http\Controllers\API\PracticantesController;
 use App\Http\Controllers\API\CuadernoController;
 use App\Http\Controllers\API\LibroGatController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SignupController;
+use App\Http\Controllers\RoleUserController;
 
 
 /*
@@ -34,7 +36,7 @@ Route::group([
 ], function ($router) {
 
     Route::post('login',  [ AuthController::class, 'login']);
-    Route::post('signup', [ UserController::class, 'create']);
+    Route::post('signup', [ SignupController::class, 'create']);
     Route::post('logout', [ AuthController::class, 'logout']);
     Route::post('refresh', [ AuthController::class, 'refresh']);
     Route::post('me', [ AuthController::class, 'me']);
@@ -89,5 +91,11 @@ Route::prefix('user')->group(function () {
     Route::delete('/{id}',[ UserController::class, 'delete']);
     Route::get('/{id}',[ UserController::class, 'get']);
     Route::put('/{id}',[ UserController::class, 'update']);
+});
+
+Route::prefix('userole')->group(function () {
+    Route::get('/',[ RoleUserController::class, 'getAll']);
+    Route::delete('/{id}',[ RoleUserController::class, 'delete']);
+    Route::get('/{id}',[ RoleUserController::class, 'get']);
 });
 

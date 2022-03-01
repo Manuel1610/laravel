@@ -14,6 +14,11 @@ class LibroController extends Controller
         $this->middleware('auth.role:2,1');
     }
 
+    public function index (Request $request)
+    {
+        return Libro::search($request->buscar);
+    }
+
     public function getAll(){
     $data = Libro::get();
     return response()->json($data, 200);
@@ -54,9 +59,10 @@ class LibroController extends Controller
 
     public function update(Request $request,$id){
 
-    libro::findOrFail($id)->update($request->all());
+        $data['fechaentrega']           = $request['fechaentrega'];
+        $data['salida']                 = $request['salida'];
+    libro::findOrFail($id)->update($data);
         return response()->json(['success' => true]);
     }
-
 
 }

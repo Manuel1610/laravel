@@ -49,8 +49,14 @@ class PracticantesController extends Controller
         return response()->json($data, 200);
     }
     public function update(Request $request,$id){
+        $data['Nombres']        = $request['Nombres'];
+        $data['Apellidos']      = $request['Apellidos'];
+        $data['FechaNacimiento']= $request['FechaNacimiento'];
+        $data['DNI']            = $request['DNI'];
+        $data['Celular']        = $request['Celular'];
+        $data['Turno']          = $request['Turno'];
 
-        Practicantes::findOrFail($id)->update($request->all());
+        Practicantes::findOrFail($id)->update($data);
         return response()->json(['success' => true]);
     }
 }
